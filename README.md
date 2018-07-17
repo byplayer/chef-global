@@ -11,6 +11,7 @@ ubuntu
 * `node['global']['prefix']` - global install directory
 * `node['global']['version']` - global version to install
 * `node['global']['url']` - URL to global tarball
+* `node['global']['configure_opt']` - configure option
 
 ## Usage
 
