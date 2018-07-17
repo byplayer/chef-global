@@ -14,7 +14,7 @@ execute "Extracting and Building Global #{node['global']['version']} from Source
   command <<-COMMAND
     tar xzf global-#{node['global']['version']}.tar.gz
     cd global-#{node['global']['version']}
-    ./configure --prefix=#{node['global']['prefix']} --with-exuberant-ctags=#{`which ctags-exuberant`} #{node['global']['configure_opt']}
+    ./configure --prefix=#{node['global']['prefix']} #{node['global']['configure_opt']} --with-exuberant-ctags=#{`which ctags-exuberant`}
 
     make
     make install
