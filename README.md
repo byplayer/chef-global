@@ -4,7 +4,7 @@ Install and config global
 
 ## Supported Platforms
 
-ubuntu
+ubuntu mac_os_x
 
 ## Attributes
 
