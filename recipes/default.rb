@@ -1,11 +1,20 @@
-pkgs = %w{libncurses5-dev exuberant-ctags}
-pkgs.each do |pkg|
-  package pkg
+# frozen_string_literal: true
+
+configure_cmd = "./configure --prefix=#{node['global']['prefix']} --with-exuberant-ctags=#{`which ctags-exuberant`}"
+if platform_family?('debian', 'ubuntu')
+  pkgs = %w[libncurses5-dev exuberant-ctags]
+  pkgs.each do |pkg|
+    package pkg
+  end
+end
+
+if platform_family?('mac_os_x')
+  configure_cmd = "./configure --prefix=#{node['global']['prefix']} --with-exuberant-ctags=#{`which ctags`}"
 end
 
 remote_file "#{Chef::Config['file_cache_path']}/global-#{node['global']['version']}.tar.gz" do
   source    node['global']['url']
-  mode      00644
+  mode      0o0644
   not_if "test -f #{Chef::Config['file_cache_path']}/global-#{node['global']['version']}.tar.gz"
 end
 
