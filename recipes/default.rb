@@ -21,7 +21,6 @@ end
 execute "Extracting and Building Global #{node['global']['version']} from Source" do
   cwd Chef::Config['file_cache_path']
   command <<-COMMAND
-    export PATH=$PATH:/usr/local/bin
     tar xzf global-#{node['global']['version']}.tar.gz
     cd global-#{node['global']['version']}
     ./configure --prefix=#{node['global']['prefix']} #{node['global']['configure_opt']}
