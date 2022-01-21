@@ -8,10 +8,10 @@ ubuntu mac_os_x
 
 ## Attributes
 
-* `node['global']['prefix']` - global install directory
-* `node['global']['version']` - global version to install
-* `node['global']['url']` - URL to global tarball
-* `node['global']['configure_opt']` - configure option
+- `node['global']['prefix']` - global install directory
+- `node['global']['version']` - global version to install
+- `node['global']['base_url']` - URL to global download.
+- `node['global']['configure_opt']` - configure option
 
 ## Usage
 
@@ -21,9 +21,7 @@ Include `global` in your node's `run_list`:
 
 ```json
 {
-  "run_list": [
-    "recipe[global::default]"
-  ]
+  "run_list": ["recipe[global::default]"]
 }
 ```
 
