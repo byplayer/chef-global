@@ -13,7 +13,7 @@ if platform_family?('mac_os_x')
 end
 
 remote_file "#{Chef::Config['file_cache_path']}/global-#{node['global']['version']}.tar.gz" do
-  source    File.join(node['global']['base_url'], "#{node['global']['version']}.tar.gz")
+  source    File.join(node['global']['base_url'], "global-#{node['global']['version']}.tar.gz")
   mode      0o0644
   not_if "test -f #{Chef::Config['file_cache_path']}/global-#{node['global']['version']}.tar.gz"
 end
